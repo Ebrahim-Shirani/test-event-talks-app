@@ -1,0 +1,25 @@
+# Python virtual environment
+venv/
+# Byte‑compiled / optimized Python files
+__pycache__/
+*.py[cod]
+*.class
+# Distribution / packaging
+build/
+*.egg-info/
+# Installed packages
+*.dist-info/
+# Flask / development artifacts
+instance/
+*.sqlite3
+# OS files
+.DS_Store
+Thumbs.db
+# IDE / editor folders
+.vscode/
+.idea/
+*.iml
+# Logs
+*.log
+# Environment files
+.env
