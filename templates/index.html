@@ -4,17 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BigQuery Release Notes</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>BigQuery Release Notes</h1>
-        <button id="refreshBtn" class="refresh-btn">
-            Refresh
-            <span id="spinner" class="spinner hidden"></span>
-        </button>
-        <ul id="notesList" class="notes-list"></ul>
+        <header class="app-header">
+            <h1>📋 BigQuery Release Notes</h1>
+            <div class="header-controls">
+                <label class="theme-label" title="Toggle light/dark mode">
+                    <span>🌙</span>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle" aria-label="Toggle light/dark mode" />
+                        <span class="slider"></span>
+                    </label>
+                    <span>☀️</span>
+                </label>
+                <button id="refreshBtn" class="refresh-btn" aria-label="Refresh notes">
+                    ↻ Refresh
+                    <span id="spinner" class="spinner hidden"></span>
+                </button>
+                <button id="exportBtn" class="export-btn" disabled aria-label="Export notes to CSV" title="Load notes first">
+                    ⬇ Export CSV
+                </button>
+            </div>
+        </header>
+
+        <div class="toolbar">
+            <input type="search" id="searchInput" class="search-input"
+                placeholder="Search notes by title or summary…"
+                aria-label="Search notes" />
+            <div class="toolbar-meta">
+                <span id="noteCount" class="note-count" aria-live="polite"></span>
+                <span id="lastFetched" class="last-fetched"></span>
+            </div>
+        </div>
+
+        <ul id="notesList" class="notes-list" role="list" aria-live="polite" aria-label="Release notes"></ul>
     </div>
+
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top" title="Back to top">↑</button>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
     <script src="/static/js/app.js"></script>
 </body>
 </html>
